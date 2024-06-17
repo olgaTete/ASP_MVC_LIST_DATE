@@ -1,48 +1,46 @@
-﻿@* @model IEnumerable<ListDate.Models.Entities.Person> *@
+﻿
     @using ListDate2.Models.View;
+     @using ListDate2.Models;
 
-@model IEnumerable<ListDate2.Models.Entities.Person>
+@model PeopleViewModel
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>List of People</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
 
-<form asp-controller="People" asp-action="Index" method="get">
-    <p>
-        Title: <input type="text" name="SearchString" />
-        <input type="submit" value="Filter" />
-    </p>
+<form asp-controller="People" asp-action="Index" method="post">
+    
+    <div class="input-group">
+        <input type="text" asp-for="SearchString" placeholder="Search by name or city" class="form-control" />
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </div>
 </form>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.PersonName)
             </th>
-            @* <th>
-            @Html.DisplayNameFor(model => model.Phone)
-            </th> *@
             <th>
-                @Html.DisplayNameFor(model => model.City)
+                @Html.DisplayNameFor(model => model.PersonCity)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.People)
         {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
-                @* <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td> *@
                 <td>
                     @Html.DisplayFor(modelItem => item.City)
                 </td>

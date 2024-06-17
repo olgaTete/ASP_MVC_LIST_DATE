@@ -64,12 +64,8 @@ namespace ListDate2.Controllers
             return View();
         }
 
-        // POST: People/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Id,Name,Phone,City")] CreatePersonViewModel person)
+        public IActionResult Create(CreatePersonViewModel person)
         {
             if (ModelState.IsValid)
             {
@@ -78,57 +74,6 @@ namespace ListDate2.Controllers
             }
             return View(person);
         }
-
-        //// GET: People/Edit/5
-        //public IActionResult Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var person = _peopleService.FindAsync(id);
-        //    if (person == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(person);
-        //}
-
-        //// POST: People/Edit/5
-        //// To protect from overposting attacks, enable the specific properties you want to bind to.
-        //// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Phone,City")] Person person)
-        //{
-        //    if (id != person.Id)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            _context.Update(person);
-        //            await _context.SaveChangesAsync();
-        //        }
-        //        catch (DbUpdateConcurrencyException)
-        //        {
-        //            if (!PersonExists(person.Id))
-        //            {
-        //                return NotFound();
-        //            }
-        //            else
-        //            {
-        //                throw;
-        //            }
-        //        }
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(person);
-        //}
 
         // GET: People/Delete/5
         public IActionResult Delete(int id)
@@ -145,23 +90,16 @@ namespace ListDate2.Controllers
 
         // POST: People/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
             _peopleService.Remove(id);
             return RedirectToAction("Index");
         }
-
-        public IActionResult Privacy()
+   public IActionResult Privacy()
         {
             return View();
         }
     }
-    //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    //public IActionResult Error()
-    //{
-    //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    //}
 }
 
 

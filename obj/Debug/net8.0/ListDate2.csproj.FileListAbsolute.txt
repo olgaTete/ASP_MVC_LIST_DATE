@@ -28,3 +28,4 @@ C:\Users\uv01\source\repos\ListDate2\obj\Debug\net8.0\refint\ListDate2.dll
 C:\Users\uv01\source\repos\ListDate2\obj\Debug\net8.0\ListDate2.pdb
 C:\Users\uv01\source\repos\ListDate2\obj\Debug\net8.0\ListDate2.genruntimeconfig.cache
 C:\Users\uv01\source\repos\ListDate2\obj\Debug\net8.0\ref\ListDate2.dll
+C:\Users\uv01\source\repos\ListDate2\obj\Debug\net8.0\ListDate2.sourcelink.json

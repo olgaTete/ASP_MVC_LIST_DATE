@@ -9,7 +9,6 @@ namespace ListDate2.Models.Repo
         List<Person> All();
         List<Person> Search(string search);
         Person FindById(int id);
-        bool Edit(int id, CreatePersonViewModel person);
         bool Remove(int id);
     }
 }

@@ -15,13 +15,6 @@ namespace ListDate2.Models
                 _peopleRepo = peopleRepo;
 
             }
-            //IPeopleRepo _peopleRepo;
-
-            //public PeopleService()
-            //{
-            //    //_peopleRepo = peopleRepo;
-            //    _peopleRepo = new InMemoryPeopleRepo();
-            //}
             public Person Add(CreatePersonViewModel person)
             {
 
@@ -29,8 +22,6 @@ namespace ListDate2.Models
                 return _peopleRepo.Create(newPerson);
                 throw new NotImplementedException();
             }
-
-
             public List<Person> All()
             {
                 return _peopleRepo.Read();
@@ -41,8 +32,6 @@ namespace ListDate2.Models
                 return _peopleRepo.Read(id);
                 throw new NotImplementedException();
             }
-
-
             public bool Edit(int id, CreatePersonViewModel person)
             {
                 var existingPerson = FindById(id);
@@ -56,8 +45,6 @@ namespace ListDate2.Models
                 return false;
                 throw new NotImplementedException();
             }
-
-
             public bool Remove(int id)
             {
                 var person = FindById(id);

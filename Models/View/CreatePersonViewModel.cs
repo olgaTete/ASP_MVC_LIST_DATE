@@ -7,7 +7,6 @@ namespace ListDate2.Models.View
         public string Name { get; set; }
 
         [Required]
-        [Phone]
         public string PhoneNumber { get; set; }
 
         [Required]
