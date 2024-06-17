@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ListDate2.props" />
+</Project>
