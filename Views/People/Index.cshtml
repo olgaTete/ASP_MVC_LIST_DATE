@@ -14,14 +14,11 @@
 </p>
 
 <form asp-controller="People" asp-action="Index" method="post">
-    
-    <div class="input-group">
-        <input type="text" asp-for="SearchString" placeholder="Search by name or city" class="form-control" />
-        <div class="input-group-append">
-            <button type="submit" class="btn btn-primary">Search</button>
-        </div>
-    </div>
-</form>
+        <p>
+            Title: <input type="text" name="SearchString" />
+            <input type="submit" value="Filter" />
+        </p>
+    </form>
 <table class="table">
     <thead>
         <tr>
