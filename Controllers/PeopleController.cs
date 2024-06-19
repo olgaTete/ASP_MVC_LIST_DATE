@@ -1,9 +1,9 @@
-﻿
 using Microsoft.AspNetCore.Mvc;
 using ListDate2.Models.Entities;
 using ListDate2.Models;
 using ListDate2.Models.View;
 using ListDate2.Models.Repo;
+using System;
 
 namespace ListDate2.Controllers
 {
@@ -24,23 +24,17 @@ namespace ListDate2.Controllers
                 SearchString = searchString
             };
 
-            if (searchString == null || searchString.Trim() == "")
+            if (string.IsNullOrWhiteSpace(searchString))
             {
                 viewModel.People = _peopleService.All();
-
             }
             else
             {
                 viewModel.People = _peopleService.Search(searchString);
 
-                if (viewModel.People.Any())
-                {
-                    viewModel.SearchResult = $"Results found for '{searchString}'.";
-                }
-                else
-                {
-                    viewModel.SearchResult = $"No results found for '{searchString}'.";
-                }
+                viewModel.SearchResult = viewModel.People.Any()
+                    ? $"Results found for '{searchString}'."
+                    : $"No results found for '{searchString}'.";
             }
 
             return View(viewModel);
@@ -95,12 +89,12 @@ namespace ListDate2.Controllers
             _peopleService.Remove(id);
             return RedirectToAction("Index");
         }
-   public IActionResult Privacy()
+
+        public IActionResult Privacy()
         {
             return View();
         }
     }
 }
-
 
 
