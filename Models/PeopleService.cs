@@ -58,7 +58,7 @@ namespace ListDate2.Models
 
             public List<Person> Search(string search)
             {
-                return _peopleRepo.Read().Where(p => p.Name.ToLower().Contains(search.ToLower()) || p.City.ToLower().Contains(search.ToLower())).ToList();
+                return _peopleRepo.Read().Where(p => p.Name.Contains(search) || p.CityName.Contains(search)).ToList();
                 throw new NotImplementedException();
             }
         }
